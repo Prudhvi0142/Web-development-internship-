@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Pricing Plans</h1>
+
+  <div class="toggle-container">
+    <label class="toggle-label">
+      <input type="checkbox" id="toggle-switch" onchange="togglePlan()">
+      <span class="toggle-slider round"></span>
+    </label>
+    <span id="toggle-text">Monthly</span>
+  </div>
+
+  <div class="pricing-container">
+    <div class="pricing-item">
+      <h2>Basic Plan</h2>
+      <p class="price" data-monthly="10" data-yearly="120">$10/month</p>
+      <button onclick="convertCurrency('USD', getPrice('monthly', 10), 'EUR')">Convert</button>
+    </div>
+    <div class="pricing-item">
+      <h2>Premium Plan</h2>
+      <p class="price" data-monthly="20" data-yearly="240">$20/month</p>
+      <button onclick="convertCurrency('USD', getPrice('monthly', 20), 'EUR')">Convert</button>
+    </div>
+    <div class="pricing-item">
+      <h2>Enterprise Plan</h2>
+      <p class="price" data-monthly="30" data-yearly="360">$30/month</p>
+      <button onclick="convertCurrency('USD', getPrice('monthly', 30), 'EUR')">Convert</button>
+    </div>
+  </div>
+
+  <div class="currency-converter">
+    <input type="number" id="conversion-amount" placeholder="Enter amount">
+    <select id="fromCurrency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="INR">INR</option>
+    </select>
+    <select id="toCurrency">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+      <option value="GBP">GBP</option>
+      <option value="INR">INR</option>
+    </select>
+    <button onclick="convertCurrency()">Convert</button>
+  </div>
+
+  <div id="converted-price"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
